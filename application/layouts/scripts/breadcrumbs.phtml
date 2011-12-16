@@ -1,0 +1,15 @@
+<ul class="breadcrumb">
+<?php 
+    if(empty($this->pages)) {
+        echo '<li class="active">Pradinis Langas</li>';
+    } else {
+        foreach($this->pages as $page) {
+            if($page->isActive()) {
+               echo "<li class=\"active\">{$page->getLabel()}</li>"; 
+            } else {
+               echo "<li><a href=\"{$page->getHref()}\">{$page->getLabel()}</a> / </li>";
+            }
+        }
+    }    
+?>
+</ul>

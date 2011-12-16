@@ -1,11 +1,11 @@
 <?php
 $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8');
-$this->headLink()->appendStylesheet('/css/reset.css')
+$this->headLink()->appendStylesheet('http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css')
         ->appendStylesheet('/css/style.css');
 $this->navigation(Zend_Registry::get('navigation'));
 
 $auth = Zend_Auth::getInstance()->getIdentity();
-$fullnname = $auth->vardas . ' ' . $auth->pavarde;
+$fullname = $auth->vardas . ' ' . $auth->pavarde;
 unset($auth);
 $this->headTitle('AAS')->setSeparator(' :: ');
 echo $this->docType('HTML5') . PHP_EOL;
@@ -18,21 +18,20 @@ echo $this->docType('HTML5') . PHP_EOL;
         <?php echo $this->headScript(); ?>
     </head>
     <body>
-        <div id="wrapper">
-            <div id="header">
-                <?php
-                if ($this->navigation()->breadcrumbs()->setSeparator(" -&gt; ")->render() === '') {
-                    echo 'Pradinis langas';
-                }
-                echo $this->navigation()->breadcrumbs();
-                ?>
-                <div id="loged">
-                    <?php echo $fullnname; ?> &nbsp; <a href="/index/logout/">Atsijungti</a>
+        <div class="container">
+            <div class="content">
+                <div class="page-header">
+                    <h1>AAS</h1>
+                    <small>Paramos priemonių organizavimo sistema</small>
+                    <span style="float: right;"><?php echo $fullname; ?> <a href="/index/logout">Atsijungti</a></span>
+                </div>
+                    <?php echo $this->navigation()->breadcrumbs()->setPartial(array('breadcrumbs.phtml', 'default')); ?>
+                <div class="row">
+                    <div class="span14"><?php echo $this->layout()->content; ?></div>
                 </div>
             </div>
-            <div style="clear: both;"></div>
-            <div id="content">
-                <?php echo $this->layout()->content; ?>
+            <div id="footer">
+                <p>Creaded by BaconSoft &copy; 2011</p>
             </div>
         </div>
     </body>
