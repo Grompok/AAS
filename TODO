@@ -1,0 +1,23 @@
+- Auth
+ |- login
+ |- logout
+
+- User
+ |- add
+ |- remove
+ |- edit
+ 
+- Unit
+ |- add
+ |- remove
+ |- edit
+ |- report
+ |- analysis
+
+- Data
+ |- import
+
+- System
+ |- add
+ |- remove
+ |- edit
