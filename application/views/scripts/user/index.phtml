@@ -1,0 +1,17 @@
+<a href="/user/create">Naujas Vartotojas</a>
+<table>
+    <thead>
+        <th>Vardas</th>
+        <th>Pavardė</th>
+        <th>Veiksmai</th>
+    </thead>
+    <tbody>
+        <tr>
+            <?php 
+            foreach($this->data as $user) {
+                echo $this->partial('partials/user.phtml', $user);
+            }
+            ?>
+        </tr>
+    </tbody>
+</table>

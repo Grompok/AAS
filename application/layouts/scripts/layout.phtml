@@ -1,0 +1,39 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8');
+$this->headLink()->appendStylesheet('/css/reset.css')
+        ->appendStylesheet('/css/style.css');
+$this->navigation(Zend_Registry::get('navigation'));
+
+$auth = Zend_Auth::getInstance()->getIdentity();
+$fullnname = $auth->vardas . ' ' . $auth->pavarde;
+unset($auth);
+$this->headTitle('AAS')->setSeparator(' :: ');
+echo $this->docType('HTML5') . PHP_EOL;
+?>
+<html>
+    <head>
+        <?php echo $this->headMeta(); ?>
+        <?php echo $this->headLink(); ?>
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headScript(); ?>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <?php
+                if ($this->navigation()->breadcrumbs()->setSeparator(" -&gt; ")->render() === '') {
+                    echo 'Pradinis langas';
+                }
+                echo $this->navigation()->breadcrumbs();
+                ?>
+                <div id="loged">
+                    <?php echo $fullnname; ?> &nbsp; <a href="/index/logout/">Atsijungti</a>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="content">
+                <?php echo $this->layout()->content; ?>
+            </div>
+        </div>
+    </body>
+</html>
