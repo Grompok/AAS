@@ -1,8 +1,8 @@
 <tr>
-    <td><?php echo $this->firstname;?></td>
-    <td><?php echo $this->lastname;?></td>
+    <td><?php echo $this->vardas;?></td>
+    <td><?php echo $this->pavarde;?></td>
     <td>
-        <a href="/user/delete/id/<?php echo $this->username;?>/">Pašalinti</a>
-        <a href="/user/edit/id/<?php echo $this->username;?>/">Redaguoti</a>
+        <a class="btn danger" href="/user/delete/id/<?php echo $this->slapyvardis;?>/">Pašalinti</a>
+        <a class="btn info" href="/user/edit/id/<?php echo $this->slapyvardis;?>/">Redaguoti</a>
     </td>
 </tr>
