@@ -1,5 +1,16 @@
-<a href="/system/create/">Naujas IS</a><br/>
-<a href="/system/delete/">Pasalinti IS</a><br/>
-<a href="/system/edit/">Redaguoti IS</a>
+<a class="btn success" href="/system/create/">Naujas IS</a><br/>
 <br/>
-//Cia table dinamine? ar kazka geriau nei table sugalvoti? jei dinamiškai piešime tai gali buti kad netilps i ekrana
+<table class="bordered-table zebra-striped">
+    <thead>
+        <th>Kodas</th>
+        <th>Pavadinimas</th>
+        <th>Veiksmai</th>
+    </thead>
+    <tbody>
+        <?php 
+        foreach($this->systems as $data) {
+            echo $this->partial('partials/system.phtml', $data);
+        }
+        ?>
+    </tbody>
+</table>

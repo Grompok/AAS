@@ -1,9 +1,15 @@
-<select>
-    <option>Padalinys1</option>
-    <option>Padalinys2</option>
-    <option>Padalinys3</option>
-    <option>Padalinys4</option>
-</select><br/>
-<a href="/unit/create/">Naujas padalinys</a><br/>
-<a href="/unit/analysis/">Analizė</a><br/>
-<a href="/unit/report/">Prognozė</a>
+<a class="btn success" href="/unit/create/">Naujas padalinys</a><br/><br/>
+<table class="bordered-table zebra-striped">
+    <thead>
+        <th>Kodas</th>
+        <th>Pavadinimas</th>
+        <th>Veiksmai</th>
+    </thead>
+    <tbody>
+        <?php 
+        foreach($this->units as $data) {
+            echo $this->partial('partials/unit.phtml', $data);
+        }
+        ?>
+    </tbody>
+</table>

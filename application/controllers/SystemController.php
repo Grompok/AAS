@@ -7,9 +7,22 @@
  */
 class SystemController extends Zend_controller_Action
 {
+    /**
+     *
+     * @var Application_Model_DbTable_IS 
+     */
+    private $_db;
+    
+    public function init()
+    {
+        if($this->_db === null) {
+            $this->_db = new Application_Model_DbTable_IS();
+        }
+    }
+
     public function indexAction()
     {
-        
+        $this->view->systems = $this->_db->fetchAll();
     }
     
     public function createAction()

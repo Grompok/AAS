@@ -6,12 +6,10 @@
         <th>Veiksmai</th>
     </thead>
     <tbody>
-        <tr>
-            <?php 
-            foreach($this->data as $user) {
-                echo $this->partial('partials/user.phtml', $user);
-            }
-            ?>
-        </tr>
+        <?php 
+        foreach($this->data as $user) {
+            echo $this->partial('partials/user.phtml', $user);
+        }
+        ?>
     </tbody>
 </table>
